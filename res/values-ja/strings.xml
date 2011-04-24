@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">バッテリー情報テキスト</string>
+    <string name="widget_name1x1">バッテリー情報テキスト 1x1</string>
+    <string name="widget_name1x2">バッテリー情報テキスト 1x2</string>
+
+    <string name="category_setting_title">ウィジット設定</string>
+
+    <string name="setting_text">テキスト</string>
+    <string name="setting_text_dialogTitle">テキスト設定</string>
+    <string name="setting_text_dialogMessage" formatted="false">%level% にバッテリー残量が入ります</string>
+    <string name="setting_text_defaultValue">バッテリー %level%%</string>
+
+    <string name="setting_text_color">テキストの色</string>
+    <string name="setting_text_color_dialogTitle">テキストの色</string>
+
+    <string name="setting_text_size">テキストサイズ</string>
+    <string name="setting_text_size_dialogTitle">テキストサイズ</string>
+    <string name="setting_text_size_sample">サイズ</string>
+</resources>

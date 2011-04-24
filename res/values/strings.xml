@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Battery Status Text</string>
+    <string name="widget_name1x1">Battery Status Text 1x1</string>
+    <string name="widget_name1x2">Battery Status Text 1x2</string>
+
+    <string name="category_setting_title">Widget setting</string>
+
+    <string name="setting_text">Text</string>
+    <string name="setting_text_dialogTitle">Widget text setting</string>
+    <string name="setting_text_dialogMessage" formatted="false">%level% is replaced with battery level</string>
+    <string name="setting_text_defaultValue">Battery %level%%</string>
+
+    <string name="setting_text_color">Text color</string>
+    <string name="setting_text_color_dialogTitle">Text color</string>
+
+    <string name="setting_text_size">Text size</string>
+    <string name="setting_text_size_dialogTitle">Text size</string>
+    <string name="setting_text_size_sample">Size</string>
+</resources>
