@@ -20,14 +20,16 @@ public class BatteryStatusTextPreference extends PreferenceActivity
     // preference
     private static final String TEXT_FORMAT = "text_format";
     private static final String TEXT_COLOR = "text_color";
+    private static final String TEXT_COLOR2 = "text_color2";
     private static final String TEXT_SIZE = "text_size";
     private static final String DEFAULT_TEXT_FORMAT = "Battery %level%%";
     private static final String DEFAULT_TEXT_COLOR = "black";
+    private static final int DEFAULT_TEXT_COLOR2 = 0x01000000;
+
     private static final String DEFAULT_TEXT_SIZE = "14";
 
     // view
     private EditTextPreference mTextFormat;
-    private ListPreference mTextColor;
     private TextSizePreference mTextSize;
 
     // service state
@@ -46,9 +48,6 @@ public class BatteryStatusTextPreference extends PreferenceActivity
 
         mTextFormat = (EditTextPreference)getPreferenceScreen().findPreference(TEXT_FORMAT);
         mTextFormat.setSummary(mTextFormat.getText());
-
-        mTextColor = (ListPreference)getPreferenceScreen().findPreference(TEXT_COLOR);
-        mTextColor.setSummary(mTextColor.getEntry());
 
         mTextSize = (TextSizePreference)getPreferenceScreen().findPreference(TEXT_SIZE);
         mTextSize.setSummary(PreferenceManager.getDefaultSharedPreferences(this).
@@ -82,8 +81,6 @@ public class BatteryStatusTextPreference extends PreferenceActivity
         // update summary text
         if (key.equals(TEXT_FORMAT)) {
             mTextFormat.setSummary(mTextFormat.getText());
-        } else if (key.equals(TEXT_COLOR)) {
-            mTextColor.setSummary(mTextColor.getEntry());
         } else if (key.equals(TEXT_SIZE)) {
             mTextSize.setSummary(Integer.toString(getWidgetTextSize(this)));
         }
@@ -94,10 +91,18 @@ public class BatteryStatusTextPreference extends PreferenceActivity
                 getString(TEXT_FORMAT, DEFAULT_TEXT_FORMAT);
     }
 
+    // old color setting.
     public static int getWidgetTextColor(Context context) {
         String c = PreferenceManager.getDefaultSharedPreferences(context).
                 getString(TEXT_COLOR, DEFAULT_TEXT_COLOR);
         return Color.parseColor(c);
+    }
+
+    // new color setting.
+    // for compatibility, read old setting first.
+    public static int getWidgetTextColor2(Context context) {
+        return PreferenceManager.getDefaultSharedPreferences(context).
+                getInt(TEXT_COLOR2, DEFAULT_TEXT_COLOR2);
     }
 
     public static int getWidgetTextSize(Context context) {

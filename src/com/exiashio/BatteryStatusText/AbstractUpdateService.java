@@ -119,7 +119,11 @@ public abstract class AbstractUpdateService extends Service {
 
         if (updateAll) {
             // update color
-            final int color = BatteryStatusTextPreference.getWidgetTextColor(this);
+            int color = BatteryStatusTextPreference.getWidgetTextColor2(this);
+            if (color == 0x01000000) {
+                // assume old setting.
+                color = BatteryStatusTextPreference.getWidgetTextColor(this);
+            }
             if (DEBUG) Log.v(getLogTag(), "Color change:" + Integer.toHexString(color));
             remoteViews.setTextColor(R.id.text, color);
 
