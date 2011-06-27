@@ -17,7 +17,13 @@
     <string name="setting_text_size">Text size</string>
     <string name="setting_text_size_dialogTitle">Text size</string>
     <string name="setting_text_size_sample">Size</string>
-    
+
+    <string name="setting_text_sample">sample</string>
+    <string name="setting_color_red">Red</string>
+    <string name="setting_color_green">Green</string>
+    <string name="setting_color_blue">Blue</string>
+    <string name="setting_color_alpha">Alpha</string>
+
     <string name="power_usage_summary_title">Battery use</string>
     <string name="power_usage_summary">What has been using the battery</string>
 </resources>

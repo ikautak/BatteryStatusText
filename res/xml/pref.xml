@@ -6,12 +6,11 @@
             android:dialogTitle="@string/setting_text_dialogTitle"
             android:dialogMessage="@string/setting_text_dialogMessage"
             android:defaultValue="@string/setting_text_defaultValue" />
-        <ListPreference android:key="text_color"
+        <com.exiashio.BatteryStatusText.TextColorPreference
+            android:key="text_color2"
             android:title="@string/setting_text_color"
             android:dialogTitle="@string/setting_text_color_dialogTitle"
-            android:entries="@array/color_list"
-            android:entryValues="@array/color_value"
-            android:defaultValue="black" />
+            android:defaultValue="0xff000000" />
         <com.exiashio.BatteryStatusText.TextSizePreference android:key="text_size"
             android:title="@string/setting_text_size"
             android:dialogTitle="@string/setting_text_size_dialogTitle"

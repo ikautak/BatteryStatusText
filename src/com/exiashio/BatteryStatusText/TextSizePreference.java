@@ -19,7 +19,7 @@ public class TextSizePreference extends DialogPreference
     public TextSizePreference(Context context, AttributeSet attrs) {
         super(context, attrs);
 
-        setDialogLayoutResource(R.layout.preference_dialog);
+        setDialogLayoutResource(R.layout.size_preference_dialog);
         setPositiveButtonText(android.R.string.ok);
         setNegativeButtonText(android.R.string.cancel);
     }
