@@ -17,4 +17,7 @@
     <string name="setting_text_size">テキストサイズ</string>
     <string name="setting_text_size_dialogTitle">テキストサイズ</string>
     <string name="setting_text_size_sample">サイズ</string>
+    
+    <string name="power_usage_summary_title">"電池使用量"</string>
+    <string name="power_usage_summary">"電池の使用状況"</string>
 </resources>

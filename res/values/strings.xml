@@ -17,4 +17,7 @@
     <string name="setting_text_size">Text size</string>
     <string name="setting_text_size_dialogTitle">Text size</string>
     <string name="setting_text_size_sample">Size</string>
+    
+    <string name="power_usage_summary_title">Battery use</string>
+    <string name="power_usage_summary">What has been using the battery</string>
 </resources>
