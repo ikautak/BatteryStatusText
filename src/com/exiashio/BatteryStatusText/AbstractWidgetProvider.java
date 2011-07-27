@@ -23,6 +23,11 @@ public abstract class AbstractWidgetProvider extends AppWidgetProvider {
     abstract protected Intent createServiceIntent(Context context);
 
     @Override
+    public void onEnabled(Context context) {
+        if (DEBUG) Log.v(getLogTag(), "onEnabled");
+    }
+
+    @Override
     public void onUpdate(Context context, AppWidgetManager appWidgetManager,
             int[] appWidgetIds) {
         if (DEBUG) Log.v(getLogTag(), "onUpdate");
@@ -35,6 +40,11 @@ public abstract class AbstractWidgetProvider extends AppWidgetProvider {
         if (DEBUG) Log.v(getLogTag(), "onDisabled");
 
         context.stopService(createServiceIntent(context));
+    }
+
+    @Override
+    public void onDeleted(Context context, int[] appWidgetIds) {
+        if (DEBUG) Log.v(getLogTag(), "onDeleted");
     }
 }
 

@@ -50,8 +50,8 @@ public abstract class AbstractUpdateService extends Service {
 
             mBatteryLevel = intent.getIntExtra("level", 0);
 
-            // update text only.
-            updateWidget(false);
+            // update widget.
+            updateWidget();
         }
     };
 
@@ -98,8 +98,8 @@ public abstract class AbstractUpdateService extends Service {
     }
 
     private void startFunction(Intent intent) {
-        // update all
-        updateWidget(true);
+        // update widget
+        updateWidget();
     }
 
     @Override
@@ -111,27 +111,25 @@ public abstract class AbstractUpdateService extends Service {
         setRunningState(false);
     }
 
-    private void updateWidget(boolean updateAll) {
-        if (DEBUG) Log.v(getLogTag(), "updateWidget updateAll:" + updateAll);
+    private void updateWidget() {
+        if (DEBUG) Log.v(getLogTag(), "updateWidget");
 
         RemoteViews remoteViews = new RemoteViews(getPackageName(), R.layout.widget);
         remoteViews.setOnClickPendingIntent(R.id.text, mPendingIntent);
 
-        if (updateAll) {
-            // update color
-            int color = BatteryStatusTextPreference.getWidgetTextColor2(this);
-            if (color == 0x01000000) {
-                // assume old setting.
-                color = BatteryStatusTextPreference.getWidgetTextColor(this);
-            }
-            if (DEBUG) Log.v(getLogTag(), "Color change:" + Integer.toHexString(color));
-            remoteViews.setTextColor(R.id.text, color);
-
-            // update size
-            final int size = BatteryStatusTextPreference.getWidgetTextSize(this);
-            if (DEBUG) Log.v(getLogTag(), "Size change:" + size);
-            remoteViews.setFloat(R.id.text, "setTextSize", size);
+        // update color
+        int color = BatteryStatusTextPreference.getWidgetTextColor2(this);
+        if (color == 0x01000000) {
+            // assume old setting.
+            color = BatteryStatusTextPreference.getWidgetTextColor(this);
         }
+        if (DEBUG) Log.v(getLogTag(), "Color change:" + Integer.toHexString(color));
+        remoteViews.setTextColor(R.id.text, color);
+
+        // update size
+        final int size = BatteryStatusTextPreference.getWidgetTextSize(this);
+        if (DEBUG) Log.v(getLogTag(), "Size change:" + size);
+        remoteViews.setFloat(R.id.text, "setTextSize", size);
 
         // update text
         String text = BatteryStatusTextPreference.getWidgetText(this);
